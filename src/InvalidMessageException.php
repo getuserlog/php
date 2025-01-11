@@ -1,6 +1,6 @@
 <?php
 
-namespace UserLog\UserLogPHP;
+namespace UserLog\PHP;
 
 class InvalidMessageException extends \Exception
 {

@@ -11,7 +11,7 @@ composer require userlog/php
 ### Initialize Client
 
 ```php
-use UserLog\UserLog\Client;
+use UserLog\PHP\Client;
 
 $userlog = new Client('7f568d73sdfgwSD44FG573432435175763sUUfs7b1dbf108e5', 'my-saas');
 ```
@@ -22,11 +22,9 @@ The project name will be auto-injected in all requests.
 
 ```php
 
-//
 // The channel and the event name are the only required parameters.
 $userlog->log('subscriptions', 'User subscribed!');
 
-//
 // Other parameters can be added when needed.
 $userlog->log(
     channel: 'subscriptions',
@@ -46,7 +44,6 @@ $userlog->log(
 
 ```php
 
-//
 // Both the user id and the properties are required.
 $userlog->identify(
     userId: 'user@example.com',

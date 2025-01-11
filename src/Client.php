@@ -1,7 +1,7 @@
 <?php
-namespace UserLog\UserLogPHP;
+namespace UserLog\PHP;
 
-final class UserLogClient
+final class Client
 {
     /**
      * Constructs a new UserLog client instance.
@@ -54,7 +54,7 @@ final class UserLogClient
      * @param array<mixed> $contents The property contents.
      * @return array<string,string> The validated contents.
      *
-     * @throws \UserLog\UserLogPHP\InvalidMessageException
+     * @throws \UserLog\PHP\InvalidMessageException
      */
     private function validateKeyValueType(string $property, array $contents): array
     {
