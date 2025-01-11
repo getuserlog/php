@@ -1,5 +1,5 @@
 {
-    "name": "userlog/userlog-php",
+    "name": "userlog/php",
     "description": "UserLog PHP SDK",
     "type": "library",
     "license": "MIT",

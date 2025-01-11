@@ -31,16 +31,14 @@ $userlog->log('subscriptions', 'User subscribed!');
 $userlog->log(
     channel: 'subscriptions',
     event: 'User subscribed!',
-    userId: '123-456',
-    description: 'A new user subscribed to the **premium plan**.',
+    userId: 'user@example.com',
+    description: 'A new user subscribed to the premium plan.',
     icon: '👍🏼',
     notify: true,
     tags: [
         'payment-method': 'card',
         'plan': 'monthly',
     ],
-    parser: 'markdown',
-    timestamp: 1709842921,
 );
 ```
 
@@ -51,44 +49,10 @@ $userlog->log(
 //
 // Both the user id and the properties are required.
 $userlog->identify(
-    userId: '123-456',
+    userId: 'user@example.com',
     properties: [
         'active': 'yes',
         'signed-in': 'no',
     ],
-);
-```
-
-### Insight
-
-```php
-
-//
-// The title and the value are the only required parameters.
-$userlog->insight('Subscribed Users', 12);
-
-//
-// Other parameters can be added when needed.
-$userlog->log(
-    title: 'Status',
-    value: 'watered',
-    icon: '🪴',
-);
-```
-
-### Insight Mutate
-
-```php
-
-//
-// The title and at least one mutation is required.
-$userlog->insight('Subscribed Users', inc: 3);
-
-//
-// Other parameters can be added when needed.
-$userlog->log(
-    title: 'Subscribed Users',
-    inc: -2,
-    icon: '👍🏼',
 );
 ```
