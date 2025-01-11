@@ -13,7 +13,7 @@ composer require userlog/php
 ```php
 use UserLog\PHP\Client;
 
-$userlog = new Client('7f568d73sdfgwSD44FG573432435175763sUUfs7b1dbf108e5', 'my-saas');
+$userlog = new Client('<API_KEY>', '<PROJECT_NAME>');
 ```
 
 The project name will be auto-injected in all requests.
@@ -22,14 +22,14 @@ The project name will be auto-injected in all requests.
 
 ```php
 
-// The channel and the event name are the only required parameters.
-$userlog->log('subscriptions', 'User subscribed!');
+// The channel name, event name and user_id are the only required parameters.
+$userlog->log('subscriptions', 'User subscribed!', 'user@example.com');
 
 // Other parameters can be added when needed.
 $userlog->log(
     channel: 'subscriptions',
     event: 'User subscribed!',
-    userId: 'user@example.com',
+    user_id: 'user@example.com',
     description: 'A new user subscribed to the premium plan.',
     icon: '👍🏼',
     notify: true,

@@ -79,19 +79,19 @@ final class Client
      *
      * @param string $channel The channel name.
      * @param string $event The name of the event (basically the message).
-     * @param null|string $userId The id of the user to link the entry to.
+     * @param string $user_id The id of the user to link the entry to.
      * @param null|string $description The description of the event.
      * @param null|string $icon An optional icon to display with the event.
      * @param null|bool $notify Whether to send a push notification.
      * @param null|array<string,string> $tags A list of tags to append to the entry.
      * @param null|int $timestamp An optional timestamp for historical data.
      *
-     * @throws \UserLog\UserLogPHP\InvalidMessageException
+     * @throws \UserLog\PHP\InvalidMessageException
      */
     public function log(
         string $channel,
         string $event,
-        ?string $userId = null,
+        string $user_id,
         ?string $description = null,
         ?string $icon = null,
         ?bool $notify = null,
@@ -110,9 +110,9 @@ final class Client
         $payload = [
             'channel' => $channel,
             'event' => $event,
+            'user_id' => $user_id,
         ];
 
-        isset($userId) && $payload['user_id'] = $userId;
         isset($description) && $payload['description'] = $description;
         isset($icon) && $payload['icon'] = $icon;
         isset($notify) && $payload['notify'] = $notify;
@@ -125,17 +125,17 @@ final class Client
     /**
      * Identifies a user.
      *
-     * @param string $userId The id of the user to identify.
+     * @param string $user_id The id of the user to identify.
      * @param array<string,string> $properties The properties of the user.
      *
-     * @throws \UserLog\UserLogPHP\InvalidMessageException
+     * @throws \UserLog\PHP\InvalidMessageException
      */
-    public function identify(string $userId, array $properties)
+    public function identify(string $user_id, array $properties)
     {
         $properties = $this->validateKeyValueType('properties', $properties);
 
         $this->request('POST', 'https://api.getuserlog.com/v1/identify', [
-            'user_id' => $userId,
+            'user_id' => $user_id,
             'properties' => $properties,
         ]);
     }
