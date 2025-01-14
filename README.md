@@ -34,8 +34,8 @@ $userlog->log(
     icon: '👍🏼',
     notify: true,
     tags: [
-        'payment-method': 'card',
-        'plan': 'monthly',
+        'payment-method' => 'card',
+        'plan' => 'monthly',
     ],
 );
 ```
@@ -48,8 +48,8 @@ $userlog->log(
 $userlog->identify(
     userId: 'user@example.com',
     properties: [
-        'active': 'yes',
-        'signed-in': 'no',
+        'active' => 'yes',
+        'signed-in' => 'no',
     ],
 );
 ```
