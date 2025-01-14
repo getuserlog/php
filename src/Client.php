@@ -119,7 +119,7 @@ final class Client
         isset($tags) && $payload['tags'] = $tags;
         isset($timestamp) && $payload['timestamp'] = $timestamp;
 
-        return $this->request('POST', 'https://api.getuserlog.com/v1/log', $payload);
+        return $this->request('POST', 'https://api.getuserlog.com/api/v1/log', $payload);
     }
 
     /**
